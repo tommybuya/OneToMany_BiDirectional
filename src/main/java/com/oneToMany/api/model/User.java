@@ -1,6 +1,7 @@
 package com.oneToMany.api.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,9 +16,9 @@ import javax.validation.constraints.Size;
 @Getter
 @Setter
 @ToString
-public class User extends AuditModel{
+public class User extends AuditModel {
     @Id
-    @GeneratedValue (strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
     @Column(nullable = false)
