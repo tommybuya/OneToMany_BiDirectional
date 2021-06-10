@@ -46,9 +46,9 @@ public class RoleService {
 
 
     //Read the role and user details
-    public ResponseEntity<?> readRole(long id) throws DataNotFoundException {
+    public Role readRole(long id) throws DataNotFoundException {
         Role role = roleRepository.findById(id).orElseThrow(() -> new DataNotFoundException("Given ID not found in database: " + id));
-        return ResponseEntity.ok(role);
+        return role;
     }
 
 

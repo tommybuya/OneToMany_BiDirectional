@@ -24,9 +24,10 @@ public class RoleController {
 
 
     @PostMapping("/create")
-    public ResponseEntity<Object> createRoleWithUser(@RequestBody Role role) {
+    public ResponseEntity<?> createRoleWithUser(@RequestBody Role role) {
         return roleService.addRoleWithUser(role);
     }
+
 
     @Operation(summary = "Get list of all roles", tags = "{roles}")
     @ApiResponses(value = {@ApiResponse(responseCode = "200",
@@ -49,7 +50,7 @@ public class RoleController {
             ),})})
     @ApiResponse(responseCode = "404", description = "ID not found in database", content = @Content)
     @GetMapping("/{id}")
-    public ResponseEntity<?> getRoleByID(@PathVariable(value = "id") long id) throws DataNotFoundException {
+    public Role getRoleByID(@PathVariable(value = "id") long id) throws DataNotFoundException {
         return roleService.readRole(id);
     }
 
